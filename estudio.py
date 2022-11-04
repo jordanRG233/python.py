@@ -681,7 +681,7 @@ entramos a los metodos , metodos de streams : upper para mayusculas, lower para 
 ''''
   metodos strip, split.  
 metodo strip para quitar espacios o caracteres de los extremos de la cadena.
-metodo slend para separar streams y devolverlos en forma de lista.
+metodo split para separar streams y devolverlos en forma de lista.
 variable.strip("cadena")
 variable.split("cadena")
  
@@ -793,7 +793,7 @@ crear la lista al igual que el metodo shuffle.
 # print("lista de impares ",impares)
 # print("lista de pares ", pares)
 '''''
-* debes poner un atributo en el metodo appen(*)
+* debes poner un atributo en el metodo append(*)
 para que puede modificar la lista 
 '''''
 # ejercicio
@@ -848,7 +848,7 @@ modificada por dicho metodo ,al guardarla en una nueva variable
 
 # metodo de lista extend .... 
 '''''
-con este metodo se puede modificar una lista agregando elementod nuevos etc
+con este metodo se puede modificar una lista agregando elementos nuevos etc
 la diferenca entre el metodo append y extend es que append devolveria si se le pasase por 
 parametro una lista , pasaria la lista completa llaves y todo dentro de la lista
 modificada .
@@ -889,17 +889,300 @@ modificada .
 # n.append(t)
 # print(n)
 
-# juego piedra , papel, tijeras.
-# 2 jugadores usuario y comp
-# utilizar el juego moneda
-# modulos random, time,
-# metodos estudiados append o extend, insert
-# mostrar resultados en una lista
+'''''
+operador "none" y  operador "is"
+* el operador none solo se puede comparar con el mismo.
+te sirve para asignar una variable de tipo vacio.
+* el oprtador is es para comparar por identidad.
+ej: if a is none
+: la identidad de las listas es distinto.
+'''''
+# ejercico
+
+# debe salir el nnumero mayor de 5 numeros
+'''''
+en este ejercicio te equivocaste en igualar la variable n con mayor  (==, =)
+tmbien tienes que tener en cuenta el operador is ...
+'''''
+# mayor=None
+# for i in range(5):
+#     n=int(input("dame un numero "))
+#     if mayor is None or n > mayor:
+#       mayor=n
+# print("el numero mayor es ", mayor)
+
+# otro ejrcicio
+#tres jugadores que introduzcan un numero y
+# espera a que los tres jugadores hayan puesto el numero
+
+# jugador_1=None
+# jugador_2=None
+# jugador_3=None
+
+
+# while jugador_1 is None or jugador_2 is None or jugador_3 is None:
+#       print("***** seleccion de jugadores *****".center(50))
+#       print()
+#       seleccion=int(input("presiona 1 para jugador_1 , 2 para jugador_2 , 3 para jugador_3 "))
+#       if seleccion == 1:
+#         jugador_1=int(input("introduce el numero "))
+#       elif seleccion==1 and seleccion is not None:
+#         print("el jugador 1 ya ha elegido ")  
+#       elif seleccion == 2:
+#          jugador_2=int(input("introduce el numero "))
+#       elif seleccion==2 and seleccion is not None:
+#         print("el jugador 1 ya ha elegido ") 
+#       elif seleccion == 3:
+#           jugador_3=int(input("introduce el numero "))
+#       elif seleccion==3 and seleccion is not None:
+#         print("el jugador 1 ya ha elegido ")     
+#       else:
+#         print("has puesto un valor incorrecto ")
+# print("los tres jugadores ya han elegido numero ")
+# print("jugador 1", jugador_1)
+# print("jugador 2", jugador_2)
+# print("jugador 3", jugador_3)
+
+'''''
+funciones predeterminadas list(), tuple().
+*para tuple se le tiene que pasar elementos iterable, varios numeros o listas
+*para copiar una lista . se utiliza la funcion list() 
+q=list(1,2,3,4) 
+de esta forma se queda esta lista guardada en q , de manera que si se le agregace un nuevo 
+valor a la lista puedes mantener la lista original
+
+'''''
+# ejercicio
+# crear lista vacia utilizando funciones
+# annadir la letra a a la lista usando metodos
+#haz una copia de lista creando una lista distinta y comprueba los elementos
+# annadir una b a la copia
+
+# letras=list()
+# letras.append("a")
+# copia=list(letras)
+# copia.append("b")
+# print(letras)
+# print(copia)
+
+# otro ejercicio
+
+# lista en reverso
+
+# numeros=[1,5,8,4,7,2,9]
+# reverso=list()
+# for i in range(len(numeros)):
+#   reverso.append(numeros[len(numeros)-1-i])
+  
+# print(reverso)
+
+'''''
+otra forma
+operador de indexacion
+'''''
+# numeros=[1,5,8,4,7,2,9]
+# reverso=list()
+# reverso=numeros[6::-1]
+# print(reverso)
+'''''
+otra forma nueva
+* esta forma hace que de uno a uno el indice de la lista va de atras hacia delante     
+'''''
+# reverso=list()
+# numeros=[1,5,8,4,7,2,9]
+# for i in numeros:
+#   reverso=[i]+ reverso
+#   print(reverso)
+'''''
+otra forma con el metodo reverse
+* este metodo solo modifica por lo cual a la lista que se quiere modificar primero tienes que hacerle una copia. 
+de lo contrario devolveria el metodo none
+'''''
+# numeros=[1,5,8,4,7,2,9]
+# numeros.reverse()
+# print(numeros)
+
+'''''
+metodo sort y funcion sorted
+* este metodo ordena la lista , pero como el metodo reverse , modifdica la lista
+* utilizando lista.sort(lista.reverse=True).... ordena la lista de mayor a menor
+con sorted , devuelve una lista segun el iterable 
+'''''
+# lista=[1,2,3,4,5]
+# lista_nueva=list(lista)
+# lista_nueva.sort(reverse=True)
+# print(lista)
+# print(lista_nueva)
+
+# lista_nueva_b=sorted(lista_nueva, reverse=True)
+# print(lista_nueva_b)
+
+# ejrcicio
+'''''
+hacer un programa en el que halla que elegir contrasenna
+la contrasenna tiene que tener de 8 a 15 caracteres, 1 mayuscula
+1 minuscula, 1 dijito, 1 caracter especial: @$%&
+habra 5 intentos,despues de cada intento,se indicara la causa
+y al final del 5 se indicara que ha sido imposible establecer
+contrasenna.
+'''''
+# contrasenna=None
+# intentos=0
+# mayuscula="QWERTYUIOPASDFGHJKLZXCVBNM"
+# minuscula="qwerttyuiopasdfghjklzxcvbnm"
+# digito="1234567890"
+# especial="$%&@"
+# bandera=True
+# while bandera:
+#       intentos+=1
+#       user=input("introduce contrasenna ")
+#       mayu=False
+#       min=False
+#       long=False
+#       dig=False
+#       esp=False
+
+#       if len(user)>7 and len(user)<16:
+#         long=True
+#       for caracter in user:  
+#          if caracter in mayuscula:
+#             mayu=True
+#          if caracter in minuscula:
+#              min=True
+#          if caracter in digito:
+#             dig=True
+#          if caracter in especial:
+#             esp=True 
+#       if long and mayu and min and dig and esp:
+#          print("la contrsenna esta correcta ")
+#          contrasenna = user
+#          bandera=False
+#       else:
+#         if not long:
+#           print("la contrasenna debe de tener entre 8 y 15 caracteres ")
+#         elif not mayu:          
+#           print("la contrasenna debe de tener al menos una mayuscula ")
+#         elif not min:
+#           print("la contrasenna debe de tener minusculas ")
+#         elif not dig:
+#           print("la contrasenna debe de tener al menos un digito ")
+#         elif not esp:
+#            print("la contrasenna debe de tener al menoa un caracter especial ($,%,&,@)")      
+#       if intentos > 4:
+#         bandera = False
+# if contrasenna :
+#    print("la contrasenna es : {}".format(contrasenna))
+# else:
+#   print("no se ha podidio establecer contrasenna ")
+'''''
+dar formato a cadenas de caracteres 
+'''''
+# operador de formato (se utiliza con el simbolo %)
+# mertodo format...
+# metodo f strings
+'''''
+* con el metodo f string puedes concatenar elementos o conjuntos de listas o tuplas de esta 
+forma....
+* tambien puedes agregar operadores para reservar espacios ...
+'''''
+# lista=[1,2,3,4,5]
+# precio=[12,13,14,15,16]
+# for i in range(len(lista)):
+#   print(f"el numero de lista {lista[i]} es {precio[i]}")
+
+# for i in range(len(lista)):
+#   print(f"el numero de lista {lista[i]:10} es {precio[i]:10}")
+
+# ejercicio 
+# hallar la primera palabra mas larga
+'''''
+* en este ejercicio se utiliza una variable para compararla con los elementos de una lista 
+(len(palabra) ) 
+* en el caso que quisieramos hallar la palabra mas larga pero la ultima habria que agreagar
+el sigo de igual en conjunto con el signo de comparacion, recuerda que con este signo
+los caracteres "letras", se comparan segun el abecedario. 
+'''''
+# lista_palabras=["mesa","armario","silla","lampara","cuadro"]
+
+# palabra_maslarga=None
+# long_mayor=0
+# for palabra in lista_palabras:
+#   if len(palabra) > long_mayor:
+#     long_mayor=len(palabra)
+#     palabra_maslarga = palabra
+# print(f"la palabra mas larga es {palabra_maslarga} con una longitud de {long_mayor}") 
+
+'''''
+metodos de cadenas de caracteres 
+* index
+* find
+estos metodos tamben se les puede pasar parametros para encontrar subcadenas
+
+'''''
+# palabra="zanahoria"
+# letra_h= palabra.find("h", 3)
+# print(letra_h)
+
+# letra_i=palabra.index("i",6)
+# print(letra_i)
+
+'''''
+desempaquetado de tuplas
+* los mismos valores tanto letras como numeros, en caso de que halla mas letras que numero o viceversa
+daria error a no ser ....
+* con el signo "*"no importa cuantos valores o letras , este va a tomar el resto de los valores 
+* en caso de tener una sola variable se le puede pasar el resto de numero haciendola tupla...
+'''''
+# a,b,c=1,2,3
+# print(a,b,c)
+# a,b,*c=1,2,3,4
+# print(a,b,c)
+# lista=[1,2,3]
+# *a,=lista
+# print(a)
+'''''
+for anidados 
+'''''
+# ejercicio
+# crear baraja con bucles , annadiendo dichas cartas a una lista 
+
+# tantos=["a","2","3","4","5","6","7","s","c","r"]
+
+# palos=["oros","copas","espadas","bastos"]
+
+# baraja=[]
+
+ 
+# for i in tantos:
+#    for b in palos:
+#     carta="{} de {}".format(i,b)
+#     baraja.append(carta)
+# print(baraja)
+# # en este primer ejemplo con los for anidados obtenemos una lista desordenada. 
+# for i in range(0,40,4):
+#   print("{} {} {} {}".format(baraja[i],baraja[i+1],baraja[i+2],baraja[i+3]))
+# # recuerda que (0,40,4)representan que desde (0 hasta 40)va a estar utilizando 4 indices.
+# # es decir : 0123 ,4567 , 8910....
+# for i in range (0,40,4):
+#   for b in range(4):
+#     print("{:16} ".format(baraja[i+b]),end="" )
+#   print()
+  
+# aqui esta el codigo optimizado , para cada iteracion del bucle externo se le suma la 
+# iteracion del bucle interno , luego agregando el metodo format y quitando los espacios para
+# que no salte de linea internamente y con el otro print salte externamente .
+
+# ejercicio
+'''''
+* tabla de multiplicar del 2 al 7 utilizando el for anilldo.
+'''''
+# en este caso solo tenias que utilizar el ciclo anaidado nada mas y darle espacios 
+#con saltos de linea 
+# for numero in range(1,11):
+#    for i in range (2,8):
+#       print("{:2} * {:2} = {:2} ".format(i,numero,i*numero),end="") 
+#    print()   
+    
 
 
 
-
-
-
-
-      
